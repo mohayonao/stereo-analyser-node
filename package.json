@@ -1,7 +1,11 @@
 {
   "name": "stereo-analyser-node",
-  "version": "0.0.0",
+  "description": "Stereo AnalyserNode",
+  "version": "0.1.0",
   "author": "nao yonamine <mohayonao@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/mohayonao/stereo-analyser-node/issues"
+  },
   "devDependencies": {
     "browserify": "^8.1.3",
     "espower-loader": "^0.10.0",
@@ -14,6 +18,22 @@
     "sinon": "^1.12.2",
     "uglify-js": "^2.4.16",
     "web-audio-test-api": "^0.2.1"
+  },
+  "files": [
+    "lib",
+    "package.json",
+    "README.md"
+  ],
+  "homepage": "http://mohayonao.github.io/stereo-analyser-node/",
+  "keywords": [
+    "webaudioapi",
+    "analyser"
+  ],
+  "license": "MIT",
+  "main": "lib/stereo-analyser-node.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mohayonao/stereo-analyser-node.git"
   },
   "scripts": {
     "build": "npm run build-browser && npm run build-minify",
