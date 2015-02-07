@@ -1,7 +1,7 @@
 {
   "name": "stereo-analyser-node",
   "description": "Stereo AnalyserNode",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "nao yonamine <mohayonao@gmail.com>",
   "bugs": {
     "url": "https://github.com/mohayonao/stereo-analyser-node/issues"
@@ -37,7 +37,7 @@
   },
   "scripts": {
     "build": "npm run build-browser && npm run build-minify",
-    "build-browser": "browserify index.js --standalone StereoAnalyserNode -o build/stereo-analyser-node.js",
+    "build-browser": "browserify lib/stereo-analyser-node.js --standalone StereoAnalyserNode -o build/stereo-analyser-node.js",
     "build-minify": "uglifyjs build/stereo-analyser-node.js -o build/stereo-analyser-node.min.js",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha",
     "lint": "jshint --reporter node_modules/jshint-stylish/stylish.js lib test",
