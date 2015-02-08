@@ -1,6 +1,6 @@
 # StereoAnalyserNode
 [![Build Status](http://img.shields.io/travis/mohayonao/stereo-analyser-node.svg?style=flat-square)](https://travis-ci.org/mohayonao/stereo-analyser-node)
-[![NPM Version](http://img.shields.io/npm/v/stereo-analyser-node.svg?style=flat-square)](https://www.npmjs.org/package/node-pico)
+[![NPM Version](http://img.shields.io/npm/v/stereo-analyser-node.svg?style=flat-square)](https://www.npmjs.org/package/stereo-analyser-node)
 [![Bower](http://img.shields.io/bower/v/stereo-analyser-node.svg?style=flat-square)](http://bower.io/search/?q=stereo-analyser-node)
 [![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](http://mohayonao.mit-license.org/)
 
