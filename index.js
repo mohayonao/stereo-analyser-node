@@ -21,7 +21,7 @@ function StereoAnalyserNode(audioContext) {
   splitter.connect(analyserL, 0, 0);
   splitter.connect(analyserR, 1, 0);
   analyserL.connect(merger, 0, 0);
-  analyserL.connect(merger, 0, 1);
+  analyserR.connect(merger, 0, 1);
 
   if (typeof analyserL.getFloatTimeDomainData !== "function") {
     analyserL.getFloatTimeDomainData = getFloatTimeDomainData;
