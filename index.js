@@ -20,8 +20,6 @@ function StereoAnalyserNode(audioContext) {
 
   splitter.connect(analyserL, 0, 0);
   splitter.connect(analyserR, 1, 0);
-  analyserL.connect(merger, 0, 0);
-  analyserR.connect(merger, 0, 1);
 
   if (typeof analyserL.getFloatTimeDomainData !== "function") {
     analyserL.getFloatTimeDomainData = getFloatTimeDomainData;
@@ -77,11 +75,20 @@ function StereoAnalyserNode(audioContext) {
     },
     connect: {
       value: function() {
+        analyserL.connect(merger, 0, 0);
+        analyserR.connect(merger, 0, 1);
         merger.connect.apply(merger, arguments);
       }
     },
     disconnect: {
       value: function() {
+        if (arguments.length !== 0) {
+          global.console.warn(
+            "StereoAnalyserNode does not support selective disconnection. This operation may not works to analyse fine."
+          );
+        }
+        analyserL.disconnect();
+        analyserR.disconnect();
         merger.disconnect.apply(merger, arguments);
       }
     },
