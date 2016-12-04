@@ -2,11 +2,18 @@
 (function (global){
 "use strict";
 
-function StereoAnalyserNode(audioContext) {
+function StereoAnalyserNode(audioContext, opts) {
+  opts = opts || {};
+
   var splitter = audioContext.createChannelSplitter(2);
   var analyserL = audioContext.createAnalyser();
   var analyserR = audioContext.createAnalyser();
   var merger = audioContext.createChannelMerger(2);
+  var fftSize = opts.fftSize;
+  var minDecibels = opts.minDecibels;
+  var maxDecibels = opts.maxDecibels;
+  var smoothingTimeConstant = opts.smoothingTimeConstant;
+  var hasError = false;
 
   splitter.channelCount = 2;
   splitter.channelCountMode = "explicit";
@@ -26,6 +33,35 @@ function StereoAnalyserNode(audioContext) {
   if (typeof analyserL.getFloatTimeDomainData !== "function") {
     analyserL.getFloatTimeDomainData = getFloatTimeDomainData;
     analyserR.getFloatTimeDomainData = getFloatTimeDomainData;
+  }
+
+  if (typeof fftSize === "number") {
+    analyserL.fftSize = fftSize;
+    analyserR.fftSize = fftSize;
+  }
+
+  try {
+    if (typeof minDecibels === "number") {
+      analyserL.minDecibels = minDecibels;
+      analyserR.minDecibels = minDecibels;
+    }
+  } catch (e) {
+    hasError = true;
+  }
+
+  if (typeof maxDecibels === "number") {
+    analyserL.maxDecibels = maxDecibels;
+    analyserR.maxDecibels = maxDecibels;
+  }
+
+  if (hasError) {
+    analyserL.minDecibels = minDecibels;
+    analyserR.minDecibels = minDecibels;
+  }
+
+  if (typeof smoothingTimeConstant === "number") {
+    analyserL.smoothingTimeConstant = smoothingTimeConstant;
+    analyserR.smoothingTimeConstant = smoothingTimeConstant;
   }
 
   Object.defineProperties(splitter, {

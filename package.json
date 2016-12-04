@@ -1,7 +1,7 @@
 {
   "name": "stereo-analyser-node",
   "description": "Stereo AnalyserNode",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "author": "Nao Yonamine <mohayonao@gmail.com>",
   "bugs": {
     "url": "https://github.com/mohayonao/stereo-analyser-node/issues"
