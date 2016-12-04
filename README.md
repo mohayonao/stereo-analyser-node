@@ -33,7 +33,11 @@ http://mohayonao.github.io/stereo-analyser-node/
 
 ## API
 ### StereoAnalyserNode
-  - `constructor(audioContext: AudioContext)`
+  - `constructor(audioContext: AudioContext, opts = {})`
+    - `opts.fftSize: number`
+    - `opts.minDecibels: number`
+    - `opts.maxDecibels: number`
+    - `opts.smoothingTimeConstant: number`
 
 #### Instance Attributes
   - `fftSize: number`
